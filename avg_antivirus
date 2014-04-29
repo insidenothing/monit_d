@@ -19,4 +19,23 @@
 
 
 
+check process avgd with pidfile /var/run/avg/avgd.pid
+   group antivirus
+   start program = "/etc/init.d/avgd start"
+   stop  program = "/etc/init.d/avgd stop"
+   if totalmem usage > 60% then alert
+   if failed host localhost port 10024 then alert
 
+
+check process avgavid with pidfile /var/run/avg/avgavid.pid
+   group antivirus
+   start program = "/etc/init.d/avgd start"
+   stop  program = "/etc/init.d/avgd stop"
+   if totalmem usage > 60% then alert
+   
+
+check process avgtcpd with pidfile /var/run/avg/avgtcpd.pid
+   group antivirus
+   start program = "/etc/init.d/avgd start"
+   stop  program = "/etc/init.d/avgd stop"
+   if totalmem usage > 60% then alert   
